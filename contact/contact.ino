@@ -1,11 +1,13 @@
 int buttonApin = 9;
 int buttonBpin = 8;
+int ledPin = 5;
 
 void setup() {
   Serial.begin(9600);
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(buttonApin, INPUT_PULLUP);  
   pinMode(buttonBpin, INPUT_PULLUP); 
+  pinMode(ledPin, OUTPUT);
 }
 
 void loop() {
@@ -27,11 +29,13 @@ void loop() {
     if (digitalRead(buttonApin) == LOW)
     {
       Serial.println("A PIN!\n");
+      digitalWrite(ledPin, HIGH);
     }
     if (digitalRead(buttonBpin) == LOW)
     {
       Serial.println("B PIN!\n");
+      digitalWrite(ledPin, HIGH);
     }
   }
-  
+  digitalWrite(ledPin, LOW);
 }
