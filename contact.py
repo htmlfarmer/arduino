@@ -1,6 +1,6 @@
 import serial
-
-  # Replace 'COM3' with the appropriate serial port for your Arduino
+  # MOSTLY TESTED ON LINUX!
+  # Replace '/dev/ttyACM0' with the appropriate serial port for your Arduino
   # (check the Arduino IDE or Device Manager on Windows)
   # Also adjust the baud rate to match the Arduino code (common values: 9600, 115200)
 arduino = serial.Serial('/dev/ttyACM0', 9600, timeout=.1)  # timeout is important for reading!
