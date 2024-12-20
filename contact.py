@@ -11,7 +11,7 @@ arduino = serial.Serial('/dev/ttyACM0', 9600, timeout=.1)  # timeout is importan
 try:
     while True:
         # Send data to the Arduino (must be bytes)
-        data_to_send = "Hello from Python!\n".encode() # encode converts to bytes
+        data_to_send = "Asher!\n".encode() # encode converts to bytes
         arduino.write(data_to_send)
 
         # Receive data from the Arduino
