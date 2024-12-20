@@ -1,16 +1,37 @@
-  void setup() {
-    Serial.begin(9600);
-    pinMode(LED_BUILTIN, OUTPUT);
-  }
+int buttonApin = 9;
+int buttonBpin = 8;
 
-  void loop() {
-    if (Serial.available() > 0) {
-      String data = Serial.readStringUntil('\n');
-      Serial.print("Received: ");
-      Serial.println(data);  // Echo back the received data
+void setup() {
+  Serial.begin(9600);
+  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(buttonApin, INPUT_PULLUP);  
+  pinMode(buttonBpin, INPUT_PULLUP); 
+}
+
+void loop() {
+  if (Serial.available() > 0) {
+    String command = Serial.readStringUntil('\n');
+    command.trim(); // remove any leading / trailing white space!
+    Serial.print("Received: ");
+    Serial.println(command);  // Echo back the received data
+    digitalWrite(LED_BUILTIN, HIGH);
+    if (command.equalsIgnoreCase("high")) {
       digitalWrite(LED_BUILTIN, HIGH);
-
-      // You can also control hardware based on received data here!
+    } else if (command.equalsIgnoreCase("low")) {
+      digitalWrite(LED_BUILTIN, LOW);
+    } else {
+      Serial.println("new command?");
     }
-    digitalWrite(LED_BUILTIN, LOW);
+
+    // check input button pins a & b
+    if (digitalRead(buttonApin) == LOW)
+    {
+      Serial.println("A PIN!\n");
+    }
+    if (digitalRead(buttonBpin) == LOW)
+    {
+      Serial.println("B PIN!\n");
+    }
   }
+  
+}
