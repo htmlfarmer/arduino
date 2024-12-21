@@ -1,6 +1,6 @@
+int ledPin = 5;
 int buttonApin = 9;
 int buttonBpin = 8;
-int ledPin = 5;
 
 void setup() {
   Serial.begin(9600);
@@ -37,5 +37,4 @@ void loop() {
       digitalWrite(ledPin, HIGH);
     }
   }
-  digitalWrite(ledPin, LOW);
 }
