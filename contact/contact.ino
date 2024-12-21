@@ -29,12 +29,13 @@ void loop() {
     if (digitalRead(buttonApin) == LOW)
     {
       Serial.println("A PIN!\n");
-      digitalWrite(ledPin, HIGH);
+      digitalWrite(ledPin, LOW);
     }
     if (digitalRead(buttonBpin) == LOW)
     {
       Serial.println("B PIN!\n");
-      digitalWrite(ledPin, HIGH);
+      digitalWrite(ledPin, LOW);
     }
   }
+  digitalWrite(ledPin, HIGH);
 }
